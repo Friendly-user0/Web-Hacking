@@ -1,0 +1,162 @@
+# Recon
+
+## 1. **Basic Reconnaissance (Passive OSINT)**
+
+> No interaction with the target, avoids detection.
+> 
+- **WHOIS & Domain Intelligence**
+    - `whois example.com`
+    - `DomainBigData`
+    - Identify registrars, name servers, emails, organization.
+- **DNS Enumeration**
+    - `dig`, `nslookup`, `dnsrecon`, `fierce`
+    - Collect subdomains, mail servers, TXT records (SPF/DMARC).
+- **Search Engines**
+    - Google Dorking: `site:example.com filetype:pdf`
+    - Shodan Dorking
+    - Censyus Dorking
+    - LinkedIn for employees → spear-phishing usernames.
+- **Wayback Machine / Archive.org**
+    - Look for old endpoints, forgotten panels, staging environments.
+    - Version detection of services
+- **Image OSINT**
+    
+    Google image search : `yandex` `tineye`
+    
+- **Public Repositories**
+    - GitHub/GitLab/Bitbucket leaks: API keys, credentials.
+    - Tools: `truffleHog`, `git-secrets`.
+        
+        Technology Fingerprinting : `wappulyzer`
+        
+        Source Code
+        
+- **Media Recon**
+    - Stack technology leaks: "We’re hiring a DevOps engineer with AWS, Terraform, Kubernetes experience" = tech stack exposed. ( job postings )
+    - Social Media Recon
+    - Location recon
+    - Satellite images
+    - Employee Recon
+    - Instagram / Facebook /Twitter /  and all….
+        
+         `sherlcok`
+        
+        `whatsapp.checkleaked.cc`
+        
+- **Hunting**
+    - Fingerprint exposed services globally.
+    - Data breaches: `weleakinfo` `pimeyes` `dehashed` `leakcheck` `haveibeenpwned`
+    - Emails  credential stuffing targets.
+        
+        [`Hunter.io`](http://hunter.io/) [`Phonebook.cz`](http://phonebook.cz/) `VoilaNorbert` `rocketreach`
+        
+        breaches such as : [`intelx.i](http://intelx.io)o` `haveibeenpwnd` `leakradar.io`
+        
+        Verifying email: `Email Hippo` `Email checker`
+        
+________________________________________________________________________________________________________________________________________________________________________________________________________
+## 2. **Intermediate Reconnaissance (Active, but low-noise)**
+
+> Starts interacting with the target but still stealthy.
+> 
+- **Subdomain Enumeration**
+    - Tools: `subfinder`, `amass`, `assetfinder`, `crt.sh`
+    - Bruteforce with wordlists (`dnscan`, `dnsx`)
+- **Port Scanning**
+    - `nmap -sV -sC -T4 target.com`
+    - Service version detection & default scripts.
+- **Virtual Host Discovery**
+    - Tools: `ffuf -H "Host: FUZZ.example.com" -u http://IP`
+    - directory / vhost discovery
+- **Directory Bruteforcing**
+    - Web path enumeration
+    - Directory traversal tests
+    - Tools: `gobuster`, `ffuf`, `dirsearch`
+    - Wordlists: `SecLists`
+    - JS endpoint extraction and link crawling
+    - Header-based scanning (`x-forwarded-for`, `x-origin`)
+- **SSL/TLS Recon /  Censys lookup**
+    - Check certs for SANs (Subject Alt Names).
+    - Tools: `sslscan`, `testssl.sh`.
+- **Cloud Asset Discovery**
+    - AWS S3 Buckets: `aws s3 ls s3://bucket-name`
+    - Tools: `cloud_enum`, `s3scanner`.
+________________________________________________________________________________________________________________________________________________________________________________________________________
+## 3. **Advanced Reconnaissance (Deep Attack Surface Mapping)**
+
+> Involves more aggressive scanning, correlation, and automation.
+> 
+- **ASN  Records & IP Space Enumeration**
+    - Find all IP ranges owned by org.
+    - Tools: `amass intel -asn <ASN>`, `bgp.he.net`
+    - JS file parsing for endpoints
+    - Reverse DNS lookups
+    - CORS misconfiguration checks via headers
+    - Endpoint wordlist generation using
+    - Sitemaps/robots.txt/humans.txt abuse
+- **Correlation of Domains & Subs**
+    - Tools: `Amass`, `Chaos`, `ProjectDiscovery suite`
+    - Combine results, deduplicate.
+- **Web Tech Fingerprinting**
+    - `wappalyzer`, `httpx`, `whatweb`
+    - Identify frameworks, CMS, plugins → known CVEs.
+    - WAF and CDN detection
+- **Content Discovery Beyond Wordlists**
+    - Param guessing: `paramspider`, `arjun`
+    - Identify hidden APIs.
+    - Content discovery (JS, JSON, config leaks)
+- **Git Dorking**
+    - Advanced GitHub code search for company leaks.
+- **Network-Level Recon**
+    - SNMP enumeration (if open): `snmpwalk`
+    - SMB shares: `smbclient -L //target`
+- **Automated Attack Surface Mapping**
+    - Vulnerability scanning with custom Nuclei templates / Nessus
+    - Frameworks: `reconFTW`, `BugMap`, `OSINT Framework`, `Nuclei`
+    - Daily cronjobs to catch new assets.
+________________________________________________________________________________________________________________________________________________________________________________________________________
+## 4. **Expert-Level Reconnaissance (Red Team / APT Style)**
+
+> Rarely done by casual hunters, but gold for pentesting.
+> 
+- **Supply Chain Recon**
+    - Third-party vendors → weak links.
+    - Identify partner domains, shared infra.
+- **Endpoint & API Recon**
+    - Decompile mobile apps → API endpoints.
+    - Tools: `MobSF`, `apktool`
+    - Swagger docs leaks: `/swagger.json`
+- **Employee Recon**
+    - Password reuse attacks, password spraying.
+    - Username harvesting → OWA, VPN, SSO portals.
+- **Custom Wordlist Generation**
+    - From company docs, GitHub, LinkedIn.
+    - Tools: `cewl`, `theHarvester`.
+- **Cloud & Container Recon**
+    - Kubernetes dashboards, Jenkins, Docker APIs.
+- **Advanced Correlation**
+    - Use BloodHound-style mapping for external assets.
+    - Pivot via DNS records, CDN leaks, forgotten IPs.
+ ________________________________________________________________________________________________________________________________________________________________________________________________________
+  Tools :
+
+  Google Fu / Fofa / Shodan / Censyus / Github / Social Media / ZoomEye
+Have I been pwned / Weleakinfo
+Crt.sh / testssl.sh / sslscan / DNSx
+
+Amass / sublister / subfinder / assetfinder
+Paramspider / SpiderFoot / katana / Waybackurls ( archive.org )
+linkfinder / secretfinder
+HTTPx / httprobe / gowitness
+
+Wappalyzer / whatweb / builtwith / Curl / securityheaders.com
+Maltego / sqlmap / commix
+
+Nmap / Masscan / Rustscan / Naabu / Nikto / Nuclei / corsy
+Dirbuster / Feroxbuster / Gobuster / Dirsearch / dirb / Dirsmash / FfUF
+Wafwoof / dig / traceroute
+
+## for starters
+dnsx amass subfinder assetfinder katana waybackcurls gobuster
+ httpx nikto  dirsearch ffuf commix
+
