@@ -5,8 +5,9 @@
 > No interaction with the target, avoids detection.
 > 
 - **WHOIS & Domain Intelligence**
-    - `whois example.com`
-    - `DomainBigData`
+    - `whois` `Whoxy` 
+    - `DomainBigData` `OCCRP Aleph`
+    - `Kaferjaeger.gay`
     - Identify registrars, name servers, emails, organization.
 - **DNS Enumeration**
     - `dig`, `nslookup`, `dnsrecon`, `fierce`
