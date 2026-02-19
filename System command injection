@@ -27,3 +27,9 @@ injected command `
 $(
 injected command )
 ______________________________________________________________________________
+
+"Other alternatives"
+
+- “;ls /;”
+$(ls /)
+“ls /” 
