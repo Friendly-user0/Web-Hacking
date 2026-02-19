@@ -53,3 +53,45 @@
 30. `?redirect=https://evil.com%2F%2E%2E%2Ftrusted.com` (encoded traversal + slash)  
 
 ---
+
+## Some Possible parameters
+
+```
+?return=
+?returnTo=
+?return_to=
+?checkout_url=
+“go”
+“return”
+“r_url”
+“returnUrl”
+“returnUri”
+“locationUrl”
+“goTo”
+“return_url”
+“return_uri”
+“ref=”
+“referrer=”
+“backUrl”
+“returnTo”
+“successUrl”
+?redir=
+redirect_uri=
+?redirect_url=
+?redirect=
+/redirect/
+/{payload}
+?next=
+?url=
+?target=
+?rurl=
+?dest=
+?destination=
+cgi-bin/redirect.cgi?{}
+/out/
+/out?
+?view=
+/login?to=
+?image_url=
+?go=
+```
