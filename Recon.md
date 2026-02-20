@@ -161,6 +161,12 @@ ________________________________________________________________________________
 **naabu**
 
 	$ naabu -list ips.txt -p - -s -o open_ports.txt
+	
+	$ naabu -host hackerone.com
+
+	$ echo AS14421 | naabu -p 80,443
+
+	$ echo hackerone.com | naabu -silent | httpx -silent
 ___________________
 **TLSX**
 
@@ -173,11 +179,21 @@ ________________________________________________________________________________
 
 *Go to chaos and register an account, get the api key and put in subfinder = 15% more increase enumeration*
 
-	$ subfinder -d example.com -all -silent -o subs.txt | 
+	$ subfinder -d example.com -all -silent -o subs.txt 
+
+	$ subfinder -d example.com -recursive -o deep_subs.txt
+
+	$ subfinder -d example.com -silent | httpx -silent -o live.txt
 ___________________
 **asset finder** [ Quick subdomain finder ]
 
 	$ assetfinder --subs-only example.com > asset.txt 
+
+	$ assetfinder -v example.com
+
+	$ assetfinder -live example.com
+
+	$ assetfinder --timeout 10 --rate-limit 100 example.com
 ______________________________________________________________________________________________________________________________
 
 **amass** [ Powerful subdomain enumeration (passive + active + brute force) ]
@@ -192,6 +208,12 @@ ________________________________________________________________________________
 	$ feroxbuster -u https://target.com
 	
 	$ feroxbuster -u https://target.com -x php,txt,html --depth 2 
+
+	$ feroxbuster -u http://example.com -w /usr/share/seclists/Discovery/Web-Content/raft-large-words.txt -t 100 -r --auto-tune -o ferox_results.txt
+
+	$ feroxbuster -u http://example.com -w adminlist.txt -H "Authorization: Bearer <token>" -r -o admin_panels.txt
+
+	$ feroxbuster -u http://example.com --extract-links -r -o discovered_links.txt
 ______________________________________________________________________________________________________________________________
 
 **BBOT** [  Powerful subdomain enumeration  ]
@@ -215,6 +237,7 @@ ________________________________________________________________________________
 
 	$ python3 linkfinder.py -i https://example.com/app.js -o cli 
 
+	$ python linkfinder.py -i https://example.com -d
 ____________________________________________________________________________
 [crawl a web for JS files...]
 
@@ -237,6 +260,8 @@ ________________________________________________________________________________
 **arjun** [ Parameter discovery ]
  
 	$ arjun -u https://target.com -o arjun.txt
+
+	$ arjun --passive example.com -oJ passive_params.json   
 ______________________________________________________________________________________________________________________________
 
 **paramspider** [ Crawl and extract GET parameters from URLs. ]
@@ -249,6 +274,9 @@ ___________________________________________________
 **spiderfoot** [ OSINT automation (subdomains, leaks, IPs, etc.) ]
 
 	$ spiderfoot -s example.com -o spiderfoot.html 
+
+	$ spiderfoot -s example.com -t EMAIL_ADDRESS
+
 ______________________________________________________________________________________________________________________________
 
 
