@@ -273,10 +273,16 @@ ___________________________________________________
 
 **spiderfoot** [ OSINT automation (subdomains, leaks, IPs, etc.) ]
 
-	$ spiderfoot -s example.com -o spiderfoot.html 
+	$ spiderfoot -s "example.com" -o json > spiderfoot.json 
 
-	$ spiderfoot -s example.com -t EMAIL_ADDRESS
+	$ spiderfoot -s example.com -t EMAIL_ADDRESS -o csv > discovered_emails.csv
+	
+	$ spiderfoot -s example.com -t ACCOUNT_EXTERNAL_OWNED_DOMAIN -o tab
 
+	$ spiderfoot -q -s example.com -m s3bucket,google_maps,github,pastebin -o tab | sort -u
+```
+		for url in $(cat live_urls.txt); do spiderfoot -s "$url" -o json > "${url//\//_}.json"; done
+```
 ______________________________________________________________________________________________________________________________
 
 
