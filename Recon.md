@@ -379,5 +379,5 @@ ________________________________________________________________________________
 		$ shodan search ssl.cert.subject.CN:"target.com" --fields ip_str | anew shodan.txt
 				cat shodan.txt | naabu -top-ports 1000 | anew shodan_ports.txt
 _______________________________________________________
-- cat subdomains-top1million-50000.txt | ffuf -w -:FUZZ -u http://example.com/ -H 'Host: FUZZ.example.com' -ac
+	- cat subdomains-top1million-50000.txt | ffuf -w -:FUZZ -u http://example.com/ -H 'Host: FUZZ.example.com' -ac
 
