@@ -95,3 +95,13 @@ cgi-bin/redirect.cgi?{}
 ?image_url=
 ?go=
 ```
+______________________________________________________________________________________________________________________________________________________
+
+***Something Useful***
+
+```
+ for url in $(cat payloads.txt); do 
+  echo -n "Testing: $url "
+  curl -I -s "$url" | grep -Ei "Location:|HTTP/" | grep -v "200 OK"
+done
+```
