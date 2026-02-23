@@ -380,4 +380,6 @@ ________________________________________________________________________________
 				cat shodan.txt | naabu -top-ports 1000 | anew shodan_ports.txt
 _______________________________________________________
 	- cat subdomains-top1million-50000.txt | ffuf -w -:FUZZ -u http://example.com/ -H 'Host: FUZZ.example.com' -ac
-
+_______________________________________________________
+	# messy file?
+		- cat messy.txt | grep "testing.com" | awk '{print $2}' | sort -u
