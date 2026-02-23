@@ -383,3 +383,4 @@ _______________________________________________________
 _______________________________________________________
 	# messy file?
 		- cat messy.txt | grep "testing.com" | awk '{print $2}' | sort -u
+		- cat messy.md | grep "200" | awk '{print $1}' | grep -vE "\.js($|\?)"
