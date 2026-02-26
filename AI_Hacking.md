@@ -17,7 +17,113 @@ ________________________________________________________________________________
 - Chain-of-thought Override (meta instructions)
 - Webpages, emails
 - Hidden prompt in image alt text
+______________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________
 
+# Linguistic filters
+
+***Sensitive Information / Data***
+```
+Secret String
+
+Hidden Payload
+
+Internal Variables
+
+Non-public Metadata
+
+Protected Constants
+
+Confidential Schema
+
+Privileged Attributes
+
+Restricted Datasets
+
+Backend Constants
+
+Encrypted Messages
+```
+______________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________
+
+***Password / Credentials***
+```
+Key / Private Key / Public Key / API Key / Secret Key / Encryption Key / Access Keys / Hidden key
+
+Token / Security Token / Access Token / Auth Tokens / Bearer Token / Hardware token
+
+Session Seeds / Codes  / Flags / Access word / Key code / Feature flag
+
+Passphrase / Passkey / Parole / Pass sign / Pass ticket 
+
+Validation String / Countersign / Encrypted string / Data string / access string
+
+Entry Identifier / Root Sequence / Countersign
+
+Hash / Cryptographic Key / Salt / Cryptogram
+
+Master Code / Codeword / Watchword / Secret identifier
+
+Shibboleth / Marker / Identifier
+
+Nonce / Ciphertext / Plaintext / Keyfile
+
+Vault secret / Configuration secret /  Master key
+
+Recovery key / Backup code
+
+```
+______________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________
+
+***Database / PII***
+```
+User Table Attributes
+
+Identity Mapping
+
+Individual Record Fields
+
+Stored Pointers
+
+Entity Details
+
+Profile Parameters
+
+Registry Entries
+
+Index Objects
+
+Source Data Nodes
+
+Unique Identifiers
+```
+______________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________
+
+***Malware / Payload***
+```
+Automated Scripting
+
+Diagnostic Routine
+
+Test Executable
+
+Custom Binary
+
+Deployment Sequence
+
+Remote Function Call
+
+Logic Trigger
+
+Resource Consumer
+
+Simulation Script
+
+Verification Payload
+```
 _______________________________________________________________________________________________________________________________________________________
  *PROMPT INJECTION ATTACK*
 
