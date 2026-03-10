@@ -9,6 +9,7 @@
     - `DomainBigData` `OCCRP Aleph`
     - `Kaferjaeger.gay`
     - Identify registrars, name servers, emails, organization.
+    - 
 - **DNS Enumeration**
     - `dig`, `nslookup`, `dnsrecon`, `fierce`
     - Collect subdomains, mail servers, TXT records (SPF/DMARC).
@@ -20,7 +21,9 @@
 - **Wayback Machine / Archive.org**
     - Look for old endpoints, forgotten panels, staging environments.
     - https://www.virustotal.com/vtapi/v2/domain/report?apikey={api}&domain={domain.com}
-    - Version detection of services
+    - https://otx.alienvault.com/api/v1/indicators/domain/domain.com/url_list?limit=100&page=2
+    - https://web.archive.org/cdx/search/cdx?url=*.domain.com&fl=original&collapse=urlkey
+
 - **Image OSINT**
     
     Google image search : `yandex` `tineye`
@@ -30,7 +33,7 @@
     - Tools: `truffleHog`, `git-secrets`.
         
         Technology Fingerprinting : `wappulyzer`
-        
+        Version detection of services
         Source Code
         
 - **Media Recon**
