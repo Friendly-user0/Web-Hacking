@@ -357,6 +357,46 @@ ____________________________________________________________________________
 ```
 ______________________________________________________________________________________________________________________________
 
+**Nuclei**
+
+- Finds exposed sensitive files like .env, backups, configs, logs, and git data.
+```	nuclei -l https://target.com -t exposures/
+	nuclei -u https://target.com -t exposures/backups/
+	nuclei -u https://target.com -t exposures/ -severity high,critical
+	nuclei -u https://target.com -t exposures/apis/
+	nuclei -u https://target.com -t exposures/configs/
+	nuclei -u https://target.com -t exposures/debug/
+	nuclei -u https://sub.target.com -t http/exposed-panels/
+```
+
+- Detects insecure server/app settings like debug mode, open admin panels, unsafe methods.
+```
+	nuclei -u https://target.com -t misconfiguration/
+```
+- Tests common admin panels for default or weak credentials.
+```
+  nuclei -u https://target.com -t misconfiguration/default-login/
+```
+- Checks for known vulnerabilities based on CVE signatures.
+```
+  nuclei -u https://target.com -t cves/
+```
+- Identifies dangling DNS records that may allow subdomain takeover.
+```
+	nuclei -u https://sub.target.com -t takeovers/
+```
+- Local file Inclusion
+```
+	nuclei -u https://sub.target.com -t http/vulnerabilities/generic/generic-lfi.yaml
+```
+
+- Open Redirect
+```
+	nuclei -u https://sub.target.com -t http/vulnerabilities/generic/open-redirect-generic.yaml
+```
+
+______________________________________________________________________________________________________________________________
+
 **graphql-cop** [ Test common misconfigurations of graphql endpoints ]
 
 	$ python3 graphql-cop.py -t https://mywebsite.com/graphql
