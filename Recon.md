@@ -77,7 +77,7 @@ ________________________________________________________________________________
     - Web path enumeration
     - Directory traversal tests
     - Tools: `gobuster`, `ffuf`, `dirsearch`
-    - Wordlists: `SecLists`
+    - Wordlists: `SecLists` `wordlists.assetnote.io`
     - JS endpoint extraction and link crawling
     - Header-based scanning (`x-forwarded-for`, `x-origin`)
 - **SSL/TLS Recon /  Censys lookup**
