@@ -19,6 +19,7 @@
     - LinkedIn for employees → spear-phishing usernames.
 - **Wayback Machine / Archive.org**
     - Look for old endpoints, forgotten panels, staging environments.
+    - https://www.virustotal.com/vtapi/v2/domain/report?apikey={api}&domain={domain.com}
     - Version detection of services
 - **Image OSINT**
     
