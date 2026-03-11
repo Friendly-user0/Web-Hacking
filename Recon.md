@@ -408,15 +408,22 @@ ________________________________________________________________________________
 $ cat file1 file2 | sort -u > file3  [ sort out files ] 
 
 *Google dorks*
-								site:*<*.target.*
 
-								site:*<-*.target.*
+								site:.example.com intext:Login
+								
+								site:*<*.target.*  // site:*<-*.target.* // site:*>*.target.*  // site:*->*.target.*  // site:*<->*.target.*
 
-								site:*>*.target.*
+								site:.example.com ext:pdf  //  site:.example.com filetype:php  // site:.example.com "invoice" "receipt" ext:pdf
 
-								site:*->*.target.*
+								site:.example.com before:YYYY-MM-DD // site:.example.com before:2015-01-01 
 
-								site:*<->*.target.*
+								site:.example.com inurl:? || inurl:&  		## returns results to example.com containing parameters (?,&)
+
+								site:.example.com (intext:Login OR intext:Register or intext:Create Account)
+
+								site:.example.com AND (intitle:Login OR intitle:Register or intitle:Create An Account)
+
+								site:.example.com (inurl:/signin OR inurl:/login OR inurl:/register)
 
 								site:*<*.target.com intext:"login" | intitle:"login" | inurl:"login" | intext:"username" | intitle:"username" | inurl:"username" | intext:"password" | intitle:"password" | inurl:"password"
 ________________________________________________________________________________________________
