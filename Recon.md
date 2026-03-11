@@ -409,23 +409,29 @@ $ cat file1 file2 | sort -u > file3  [ sort out files ]
 
 *Google dorks*
 
-								site:.example.com intext:Login
+				site:.example.com intext:Login
 								
-								site:*<*.target.*  // site:*<-*.target.* // site:*>*.target.*  // site:*->*.target.*  // site:*<->*.target.*
+				site:*<*.target.*  // site:*<-*.target.* // site:*>*.target.*  // site:*->*.target.*  // site:*<->*.target.*
 
-								site:.example.com ext:pdf  //  site:.example.com filetype:php  // site:.example.com "invoice" "receipt" ext:pdf
+				site:.example.com ext:pdf  //  site:.example.com filetype:php  // site:.example.com "invoice" "receipt" ext:pdf  // site:domain.com ext:log | ext:txt | ext:conf | ext:json | ext:yaml | ext:yml
 
-								site:.example.com before:YYYY-MM-DD // site:.example.com before:2015-01-01 
+				site:.example.com before:YYYY-MM-DD // site:.example.com before:2015-01-01 
 
-								site:.example.com inurl:? || inurl:&  		## returns results to example.com containing parameters (?,&)
+				site:.example.com inurl:? || inurl:&  // 		## returns results to example.com containing parameters (?,&)
 
-								site:.example.com (intext:Login OR intext:Register or intext:Create Account)
+				site:*.domain.com inurl:"error" | inurl:"debug" | inurl:"test" | inurl:"config"  // site:domain.com inurl:email= | inurl:id= | inurl:query= | inurl:search=
+				
+				site:.example.com (intext:Login OR intext:Register or intext:Create Account)
 
-								site:.example.com AND (intitle:Login OR intitle:Register or intitle:Create An Account)
+				site:.example.com AND (intitle:Login OR intitle:Register or intitle:Create An Account)
 
-								site:.example.com (inurl:/signin OR inurl:/login OR inurl:/register)
+				site:.example.com (inurl:/signin OR inurl:/login OR inurl:/register)
 
-								site:*<*.target.com intext:"login" | intitle:"login" | inurl:"login" | intext:"username" | intitle:"username" | inurl:"username" | intext:"password" | intitle:"password" | inurl:"password"
+				site:*<*.target.com intext:"login" | intitle:"login" | inurl:"login" | intext:"username" | intitle:"username" | inurl:"username" | intext:"password" | intitle:"password" | inurl:"password"
+
+				site:domain.com & inurl:redir | inurl:url | inurl:redirect | inurl:return | inurl:src=http | inurl:r=http | inurl:redirectUrl=http
+
+				site:domain.com inurl:swagger | inurl:api-docs | inurl:v1 | inurl:v2 | inurl:v3 | inurl:graphql
 ________________________________________________________________________________________________
 		$ shodan search ssl.cert.subject.CN:"target.com" --fields ip_str | anew shodan.txt
 				cat shodan.txt | naabu -top-ports 1000 | anew shodan_ports.txt
