@@ -23,6 +23,7 @@
     - https://www.virustotal.com/vtapi/v2/domain/report?apikey={api}&domain={domain.com}
     - https://otx.alienvault.com/api/v1/indicators/domain/domain.com/url_list?limit=100&page=2
     - https://web.archive.org/cdx/search/cdx?url=*.domain.com&fl=original&collapse=urlkey
+    - urlscan.io
 
 - **Image OSINT**
     
