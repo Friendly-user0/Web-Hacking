@@ -62,3 +62,5 @@ $ Double Slash = // [ mostly many ]
 //no store value is red flag
 
 //no cache is red flag
+
+*If you want to do automated testing : https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner is a great resource*
