@@ -21,9 +21,22 @@
 - **Wayback Machine / Archive.org**
     - Look for old endpoints, forgotten panels, staging environments.
     - https://www.virustotal.com/vtapi/v2/domain/report?apikey={api}&domain={domain.com}
+      
     - https://otx.alienvault.com/api/v1/indicators/domain/domain.com/url_list?limit=100&page=2
-    - https://web.archive.org/cdx/search/cdx?url=*.domain.com&fl=original&collapse=urlkey
-    - urlscan.io
+    	- A script for this is found in the `python/tools` repo name `alienvalut_grep.py` 
+       ```
+       # grep domains
+       curl -s "https://otx.alienvault.com/api/v1/indicators/domain/domain.com/url_list?limit=2000&page=4" | grep -oE "[a-zA-Z0-9.-]+\.suddomain\.domain\.com" | sort -u
+       ```
+       ```
+       # verbose (params and all)
+       curl -s "https://otx.alienvault.com/api/v1/indicators/domain/main.domain/url_list?limit=2000&page=3" \
+		| jq -r '.url_list[] | select(.url | contains("urs.testing.main.domain")) | .url'
+       ```
+    
+	- https://web.archive.org/cdx/search/cdx?url=*.domain.com&fl=original&collapse=urlkey
+    
+	- urlscan.io
 
 - **Image OSINT**
     
