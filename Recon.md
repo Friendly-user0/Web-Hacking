@@ -419,7 +419,11 @@ ________________________________________________________________________________
 
 # rough 
 
-$ cat file1 file2 | sort -u > file3  [ sort out files ] 
+	$ cat file1 file2 | sort -u > file3  [ sort out files ] 
+	
+	$ cat out.txt | uro | grep -EE '(\.env|\.git|\.config|\.phpinfo|web\.config|settings\.py|composer\.json)$' [ Filter the highest impact files ]
+	
+	$ uro -i output.txt | rg -i '\.(xls|xml|xlsx|json|pdf|sql|doc|docx|pptx|txt|zip|tar\.gz|tgz|bak|7z|rar|log|cache|secret|db|backup|yml|yaml|md|exe|dll|bin|ini|bat|sh|deb|rpm|iso|img|apk|msi|dmg|tmp|crt|pem|key|pub|asc)$' 
 
 *Google dorks*
 
@@ -452,6 +456,7 @@ ________________________________________________________________________________
 _______________________________________________________
 	- cat subdomains-top1million-50000.txt | ffuf -w -:FUZZ -u http://example.com/ -H 'Host: FUZZ.example.com' -ac
 _______________________________________________________
-	# messy file?
+	## messy file?
 		- cat messy.txt | grep "testing.com" | awk '{print $2}' | sort -u
 		- cat messy.md | grep "200" | awk '{print $1}' | grep -vE "\.js($|\?)"
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
