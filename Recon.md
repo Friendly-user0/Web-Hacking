@@ -280,6 +280,17 @@ ________________________________________________________________________________
 	$ arjun -u https://target.com -o arjun.txt
 
 	$ arjun --passive example.com -oJ passive_params.json   
+
+**Katana** [ web crawling ]
+
+	$ katana -u https://example.com
+
+	$ katana -u https://example.com -ps
+
+	$ katana -u https://example.com -ef png,jpg,jpeg,gif,css,woff,svg,pdf
+
+	$ katana -u https://example.com -jc
+	
 ______________________________________________________________________________________________________________________________
 
 **paramspider** [ Crawl and extract GET parameters from URLs. ]
