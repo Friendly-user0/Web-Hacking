@@ -273,6 +273,17 @@ ________________________________________________________________________________
 	
 	$ subfinder -d example.com -all | waybackurls > wayback.txt
 
+**GAU** [ fetches known URLs ]
+
+	$ gau example.com
+
+	$ gau --providers wayback example.com
+
+	$ gau --subs example.com
+
+	$ gau --blacklist png,jpg,gif,svg,woff,woff2,css example.com
+
+	$ gau example.com --subs | grep -iE "\.(xls|xml|xlsx|json|pdf|sql|doc|docx|pptx|txt|zip|tar\.gz|tgz|bak|7z|rar|log|cache|secret|db|backup|yml|yaml|md|exe|dll|bin|ini|bat|sh|deb|rpm|iso|img|apk|msi|dmg|tmp|crt|pem|key|pub|asc|env|git|sqlite|pfx|config|swp)$"
 ______________________________________________________________________________________________________________________________
 
 **arjun** [ Parameter discovery ]
