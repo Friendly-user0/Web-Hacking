@@ -280,6 +280,7 @@ ________________________________________________________________________________
 	$ gau --providers wayback example.com
 
 	$ gau --subs example.com
+		- grep -i "://api.example.com" all_urls.txt > api_only_urls.txt
 
 	$ gau --blacklist png,jpg,gif,svg,woff,woff2,css example.com
 
